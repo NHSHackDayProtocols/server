@@ -1,0 +1,17 @@
+{
+  "name": "protocols-server",
+  "preferGlobal": true,
+  "version": "0.0.1",
+  "author": "NHS Hackday",
+  "description": "a simple zero-configuration command-line http server",
+  "contributors": [
+    {
+      "name": "Marak Squires",
+      "email": "marak@nodejitsu.com"
+    }
+  ],
+  "dependencies": {
+    "restify": "~2.5.1",
+    "mongodb": "~1.3.6"
+  }
+}

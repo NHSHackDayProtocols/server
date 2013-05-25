@@ -39,11 +39,13 @@
     $("#loginform").submit(function(event) {
       event.preventDefault();  
       $.ajax({
-        username: $("input#username").val(),
-        password: $("input#password").val(),
+        'beforeSend': function(xhr) {
+            xhr.setRequestHeader("Authentication", "Basic " + encodeBase64(username + ":" + password) //May need to use "Authorization" instead
+        },
+
         type: "POST",
         url: "/services/login",
-        data: String,
+        data: 'String',
         success: function(){
             alert("success");
              $("#result").html('submitted successfully');
@@ -54,7 +56,7 @@
             alert("failure");
             $("#result").html('there is error while submit');
         },   
-        dataType: Text
+        dataType: 'json'
       });
     });
     </script>

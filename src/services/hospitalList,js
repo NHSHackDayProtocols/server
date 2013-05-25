@@ -1,0 +1,14 @@
+var collections;
+
+function setCollections(incomingCollections){	
+	collections = incomingCollections;
+}
+
+
+function hospitalList(req, res, next){
+	
+}
+
+
+exports.hospitalList = hospitalList;
+exports.setCollections = setCollections;

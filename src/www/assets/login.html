@@ -29,7 +29,13 @@
     </div>
     
     <script>
-    $("#submitlogin").click(function() {
+    var authentication = {
+        user: null,
+        pass: null
+    }
+    
+    $("#submitlogin").click(function(event) {
+      event.preventDefault();  
       $.ajax({
         username: $("input#username"),
         password: $("input#password"),
@@ -39,6 +45,8 @@
         success: function(){
             alert("success");
              $("#result").html('submitted successfully');
+             authentication.user = $("input#username");
+             authentication.pass = $("input#password");
         },
         error:function(){
             alert("failure");
@@ -47,7 +55,7 @@
         dataType: json
       });
     }
-    </scipt>
+    </script>
     
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>

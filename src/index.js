@@ -25,8 +25,10 @@ server.get('/', function indexHTML(req, res, next) {
 }
 
 
-server.get(/\/docs\/public\/?.*/, restify.serveStatic({
-  directory: __dirname + '/www'
+server.get(/\/public\/?.*/, restify.serveStatic({
+  directory: __dirname + '/www',
+  default: "index.html",
+  maxAge: 1;
 }));
 
 server.listen(4000);

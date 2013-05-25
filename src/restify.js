@@ -24,6 +24,11 @@ function start(callback){
 	hospitalList.setCollections(collections);
 	server.get("services/hospitalList", hospitalList.hospitalList);
 
+	var hospitalProtocols = require('./services/hospitalProtocols');
+	hospitalProtocols.setCollections(collections);
+	server.get("services/getHospitalProtocols/:name", hospitalProtocols.getByName);
+	server.post("services/updateHospitalProtocols", hospitalProtocols.updateByName);
+
 	server.get(/^(?!services).*$/, restify.serveStatic({
 	  directory: __dirname + '/www',
 	  default: "index.html",

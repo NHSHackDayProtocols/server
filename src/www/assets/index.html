@@ -25,9 +25,13 @@
       <div class="accordion span4" id="accordion2">
   <div class="accordion-group">
     <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-        Respiratory
-      </a>
+      <div class="row-fluid">
+      <div class="span7">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">Respiratory</a>
+      </div>
+      <div class="span5">
+      <a href="#newRespModal" id="newRespBtn" role="button" class="btn btn-success btn-small" data-toggle="modal">New Condition</a>
+      </div>
     </div>
     <div id="collapseOne" class="accordion-body collapse in">
       <div class="accordion-inner">
@@ -35,7 +39,7 @@
         <div class="row-fluid"
           <div class="span10"></div>
           <div class="span2">
-              <a href="#newRespModal" role="button" class="btn btn-success" data-toggle="modal">New Condition</a>
+              
           </div>         
       </div>
     </div>
@@ -71,6 +75,11 @@
     <div id="collapseThree" class="accordion-body collapse">
       <div class="accordion-inner">
 <!-- loop the gens cns conditions -->
+      <div class="row-fluid"
+          <div class="span10"></div>
+          <div class="span2">
+              <a href="#newCnsModal" role="button" class="btn btn-success" data-toggle="modal">New Condition</a>
+          </div>         
       </div>
     </div>
   </div>
@@ -86,6 +95,11 @@
       <div class="accordion-inner">
 
 <!-- loop that gens cvs conditions -->
+         <div class="row-fluid"
+          <div class="span10"></div>
+          <div class="span2">
+              <a href="#newRespModal" role="button" class="btn btn-success" data-toggle="modal">New Condition</a>
+          </div>         
       </div>
     </div>
   </div>

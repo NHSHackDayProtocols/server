@@ -5,12 +5,6 @@ function setCollections(incomingCollections){
 
 function start(callback){
 
-	var loginService = require('./services/login');
-	loginService.setCollections(collections);
-
-	var hospitalList = require('./services/hospitalList');
-	hospitalList.setCollections(collections);
-
 	var restify = require('restify');
 
 	var server = restify.createServer({
@@ -21,7 +15,14 @@ function start(callback){
 
 	server.use(restify.authorizationParser());
 
-	console.log(__dirname + '/www');
+	// var loginService = require('./services/login');
+	// loginService.setCollections(collections);	
+	// server.post('/services/login', loginService.login);
+
+
+	var hospitalList = require('./services/hospitalList');
+	hospitalList.setCollections(collections);
+	server.get("services/hospitalList", hospitalList.hospitalList);
 
 	server.get(/^(?!services).*$/, restify.serveStatic({
 	  directory: __dirname + '/www',
@@ -33,8 +34,6 @@ function start(callback){
 	  res.send(201, Math.random().toString(36).substr(3, 8));
 	  return next();
 	});
-
-	server.post('/services/login', loginService.login);
 
 	// server.get('/hello/:name', send);
 	// server.head('/hello/:name', send);

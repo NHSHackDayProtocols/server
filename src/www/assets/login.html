@@ -10,32 +10,43 @@
   <br>
     <div class="container" id="loginbox">
       <div class="row-fluid">
-        <div class="span2"></div>
-        <div class="span8 well">
+        <div class="span3"></div>
+        <div class="span6 well">
             <form>
               <fieldset>
                 <legend>Login to edit your trust's guidelines</legend>
                 <label>User name</label>
-                <input type="text" placeholder="Type something…">
+                <input type="text" placeholder="name@email.com" id="username">
                 <label>Password</label>
-                <input type="text" placeholder="Type something…">
+                <input type="text" placeholder="supersecret" id="password">
                 <br>
-                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="submit" id="submitlogin" class="btn btn-success">Submit</button>
               </fieldset>
             </form>
         </div>
-        <div class="span2"></div>
+        <div class="span3"></div>
       </div>
     </div>
     
     <script>
-    $.ajax({
-      type: "POST",
-      url: url,
-      data: data,
-      success: success,
-      dataType: dataType
-    });
+    $("#submitlogin").click(function() {
+      $.ajax({
+        username: $("input#username"),
+        password: $("input#password"),
+        type: "POST",
+        url: "/services/login",
+        data: data,
+        success: function(){
+            alert("success");
+             $("#result").html('submitted successfully');
+        },
+        error:function(){
+            alert("failure");
+            $("#result").html('there is error while submit');
+        },   
+        dataType: json
+      });
+    }
     </scipt>
     
     <script src="http://code.jquery.com/jquery.js"></script>

@@ -39,16 +39,16 @@
     $("#loginform").submit(function(event) {
       event.preventDefault();  
       $.ajax({
-        username: $("input#username"),
-        password: $("input#password"),
+        username: $("input#username").val,
+        password: $("input#password").val,
         type: "POST",
         url: "/services/login",
         data: String,
         success: function(){
             alert("success");
              $("#result").html('submitted successfully');
-             authentication.user = $("input#username");
-             authentication.pass = $("input#password");
+             authentication.user = $("input#username").val;
+             authentication.pass = $("input#password").val;
         },
         error:function(){
             alert("failure");

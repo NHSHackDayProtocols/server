@@ -11,16 +11,15 @@
       <div class="navbar-inner">
       <a class="brand" href="#">Protocolr</a>
       <ul class="nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li class="pull-right"><a href="#">Login</a></li>
+        <li class="active"><a href="/index.html">Home</a></li>
+        <li class="pull-right"><a href="/login.html">Login</a></li>
       </ul>
       </div>
   </div>
   <div class="container">
-    <h1>Edit your trusts guidelines</h1>
     <div class="row-fuid">
       <div class="span12">
-<!--       some loop to generate systems -->
+          <h1>Edit your trust's guidelines</h1>
 
 <!-- Resp -->
       <div class="accordion span4" id="accordion2">
@@ -32,11 +31,17 @@
     </div>
     <div id="collapseOne" class="accordion-body collapse in">
       <div class="accordion-inner">
-        resp details
+<!-- loop the gens resp conditions -->
+        <div class="row-fluid"
+          <div class="span10"></div>
+          <div class="span2">
+              <a href="#newRespModal" role="button" class="btn btn-success" data-toggle="modal">New Condition</a>
+          </div>         
       </div>
     </div>
   </div>
   
+
   <!-- Urinary -->
   <div class="accordion-group">
     <div class="accordion-heading">
@@ -46,7 +51,12 @@
     </div>
     <div id="collapseTwo" class="accordion-body collapse">
       <div class="accordion-inner">
-        uri deets
+<!-- loop the gens uri conditions -->
+       <div class="row-fluid"
+          <div class="span10"></div>
+          <div class="span2">
+              <a href="#newUriModal" role="button" class="btn btn-success" data-toggle="modal">New Condition</a>
+          </div>  
       </div>
     </div>
   </div>
@@ -60,7 +70,7 @@
     </div>
     <div id="collapseThree" class="accordion-body collapse">
       <div class="accordion-inner">
-        CNS deets
+<!-- loop the gens cns conditions -->
       </div>
     </div>
   </div>
@@ -74,7 +84,8 @@
     </div>
     <div id="collapseFour" class="accordion-body collapse">
       <div class="accordion-inner">
-        CV deets
+
+<!-- loop that gens cvs conditions -->
       </div>
     </div>
   </div>
@@ -84,8 +95,98 @@
       Edit things
       </div>
       
+<!--       new condition modals -->
+      <!-- New Resp Modal -->
+<div id="newRespModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="newRespModalLabel">New Respiratory Condition</h3>
+  </div>
+  <div class="modal-body">
+    <div class="row-fluid">
+      <div class="span12">
+        <form id="newRespCond">
+          <fieldset>
+            <legend>Define a new guideline</legend>
+            <label>Condition name</label>
+            <input type="text" placeholder="Bronchitis" id="condName">
+            <label>Treatment</label>
+            <input type="text" placeholder="Rest" id="condtreatment">
+          </fieldset>
+        </form>
+        </div>
+      </div>
+    </div>
+
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary">Save changes</button>
+  </div>
+</div>
+
+      <!-- New uri Modal -->
+<div id="newUriModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="newUriModalLabel">New Urinary Condition</h3>
+  </div>
+  <div class="modal-body">
+    <div class="row-fluid">
+      <div class="span12">
+        <form id="newRespCond">
+          <fieldset>
+            <legend>Define a new guideline</legend>
+            <label>Condition name</label>
+            <input type="text" placeholder="Bronchitis" id="condName">
+            <label>Treatment</label>
+            <input type="text" placeholder="Rest" id="condtreatment">
+          </fieldset>
+        </form>
+        </div>
+      </div>
+    </div>
+
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary">Save changes</button>
+  </div>
+</div>
+
+      <!-- New cns Modal -->
+<div id="newCnsModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="newCnsModalLabel">New CNS Condition</h3>
+  </div>
+  <div class="modal-body">
+    <div class="row-fluid">
+      <div class="span12">
+        <form id="newRespCond">
+          <fieldset>
+            <legend>Define a new guideline</legend>
+            <label>Condition name</label>
+            <input type="text" placeholder="Bronchitis" id="condName">
+            <label>Treatment</label>
+            <input type="text" placeholder="Rest" id="condtreatment">
+          </fieldset>
+        </form>
+        </div>
+      </div>
+    </div>
+
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary">Save changes</button>
+  </div>
+</div>
+  
+      
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
+    <script>
+      
+    </script>
+    
   </div>
   </body>
 </html>

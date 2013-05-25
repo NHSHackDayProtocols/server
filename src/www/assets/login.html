@@ -40,7 +40,7 @@
       event.preventDefault();  
       $.ajax({
         'beforeSend': function(xhr) {
-            xhr.setRequestHeader("Authentication", "Basic " + encodeBase64(username + ":" + password) //May need to use "Authorization" instead
+            xhr.setRequestHeader("Authentication", "Basic " + encodeBase64($("input#username").val() + ":" + $("input#password").val())) //May need to use "Authorization" instead
         },
 
         type: "POST",

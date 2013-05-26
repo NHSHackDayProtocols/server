@@ -25,35 +25,21 @@
         <br>
         <br>
         <!-- New breadcrumb nav -->
-        <ul class="breadcrumb hide">
-          <li><a href="#">System</a><span class = "divider">/</span></li>
-          <li><a href="#">Condition</a><span class = "divider">/</span></li>
-          <li><a href="#">Condition Subtype</a><span class = "divider">/</span></li>
-          <li class="active">Treatment</li>
-          <!--       <li><a href="#">Treatment Special</a><span class = "divider">/</span></li> -->
-        </ul>
+        <ul class="breadcrumb" id="breadcrumb"></ul>
 
         <!-- End breadcrumb nav -->
 
 
-        <div class="well hide" id="guideline">
-          <div class="row-fluid" id="content">
+        <div class="well" id="guideline">
+          <div class="row-fluid hide" id="categories">
             <div id="catTable">
               <table class="table table-striped">
-                <tr>
-                  <td><a href="#">Respiratory System</a></td>
-                  <td>Modified two days ago</td>
-                </tr>
-                <tr>
-                  <td><a href="#">Urinary System</a></td>
-                  <td>Modified two days ago</td>
-                </tr>
               </table>
             </div>
+          </div>
+          <div class="row-fluid hide" id="content">
             <h3>Title</h3>
             <br>
-          </div>
-          <div>
             <a href="#newCatModal" id="newCatBtn" role="button" class="btn btn-info btn-small" data-toggle="modal">New Category</a>
             <a href="#newRespModal" id="newRespBtn" role="button" class="btn btn-success btn-small" data-toggle="modal">New Condition</a>
             <a href="#editContent" id="editContBtn" role="button" class="btn btn-warning btn-small" data-toggle="modal">Edit Content</a>

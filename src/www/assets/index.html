@@ -15,15 +15,31 @@
         <li class="pull-right"><a href="/login.html">Login</a></li>
       </ul>
       </div>
-  </div>
-  <div class="container">
-    <div class="row-fuid">
-      <div class="span12">
+    </div>
+    <div class="container">
+      <div class="row-fuid">
+        <div class="span12">
           <h1>Edit your trust&rsquo;s guidelines</h1>
-          <input autocomplete="off" type="text" id="hospital_select" class="span3" style="margin: 0 auto;">
-          <div id="guideline">
+          
+          Input your hospital <input autocomplete="off" type="text" id="hospital_select" class="span3" style="margin: 0 auto;">
+          <br>
+          <br>
+<!-- New breadcrumb nav -->
+    <ul class="breadcrumb">
+      <li><a href="#">System</a><span class = "divider">/</span></li>
+      <li><a href="#">Condition</a><span class = "divider">/</span></li>
+      <li><a href="#">Condition Subtype</a><span class = "divider">/</span></li>
+      <li class="active">Treatment</li>
+<!--       <li><a href="#">Treatment Special</a><span class = "divider">/</span></li> -->
+    </ul>
+
+<!-- End breadcrumb nav -->
+
+
+    <div class="well" id="guideline">
 
 <!-- Resp -->
+
       <div class="accordion span4" id="accordion2">
         <div class="accordion-group">
           <div class="accordion-heading">
@@ -203,7 +219,7 @@
 <!--       JS to infer tree from form ID -->
         <form id="newTreat">
           <fieldset>
-            <legend>Define a new guideline</legend>
+            <legend>Define a new treatment guideline</legend>
             <label>Treatment</label>
             <input type="text"  id="title">
             <label>Content</label>

@@ -104,9 +104,25 @@ $(function() {
    * save the full set of guidelines that are currently in the DOM
    */
   function saveGuideline() {
-    // TODO:
-    // var guidelineJson = domToJson();
-    // $.post('/services/updateHospitalProtocols', guidelineJson);
+     $("#saveContBtn").click(function(event) {
+      event.preventDefault();  
+      $.ajax({
+        'beforeSend': function(xhr) {
+            xhr.setRequestHeader("Authentication", "Basic " + encodeBase64($("input#username").val() + ":" + $("input#password").val())) //May need to use "Authorization" instead
+        },
+
+        type: "POST",
+        url: "/services/updateHospitalProtocols",
+        data: {'hospitalName': hospitalName, 'protocols': jsonDocument.Protocols},
+        success: function(){
+          console.log("Updated")
+        },
+        error:function(){
+            console.log("error");
+        },   
+        dataType: 'json'
+      });
+    });
   }
 
   /**

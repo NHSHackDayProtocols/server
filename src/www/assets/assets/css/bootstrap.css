@@ -8,6 +8,11 @@
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
 
+
+.navbar {
+    background:-webkit-linear-gradient(#2cbf8b 87.09%, #33f8b0 100%);
+}
+
 .clearfix {
   *zoom: 1;
 }

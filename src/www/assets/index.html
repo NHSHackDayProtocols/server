@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <!-- Bootstrap -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="assets/css/bootstrap.css" rel="stylesheet" media="screen">
   </head>
   <body>
     <div class="navbar">
@@ -191,22 +191,23 @@
   </div>
 </div>
 
-      <!-- New cns Modal -->
-<div id="newCnsModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <!-- New treatment Modal -->
+<div id="newTreatModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="newCnsModalLabel">New CNS Condition</h3>
+    <h3 id="newTreatModalLabel">Add a new treatment</h3>
   </div>
   <div class="modal-body">
     <div class="row-fluid">
       <div class="span12">
-        <form id="newRespCond">
+<!--       JS to infer tree from form ID -->
+        <form id="newTreat">
           <fieldset>
             <legend>Define a new guideline</legend>
-            <label>Condition name</label>
-            <input type="text" placeholder="Bronchitis" id="condName">
             <label>Treatment</label>
-            <input type="text" placeholder="Rest" id="condtreatment">
+            <input type="text"  id="title">
+            <label>Content</label>
+            <textarea type="text" placeholder="Teicoranin 600mg BD for 5 days" id="content">
           </fieldset>
         </form>
         </div>

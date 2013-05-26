@@ -67,7 +67,7 @@ $(function() {
       breadcrumb.push('<li><a href="' + path_so_far + '">' + current.title + '</a><span class = "divider">/</span></li>');
       current = current.children[parseInt(path_arr[x])];
     }
-    $("#breadcrumb").html(breadcrumb.join(""));
+    $(".breadcrumb").html(breadcrumb.join(""));
 
     if(current.type == 'category') {
       cat = []

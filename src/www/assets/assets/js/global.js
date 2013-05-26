@@ -1,9 +1,8 @@
 var jsonDocument = {};
 var hospitalName = '';
 $(function() {
-  function render() {
-    path_str = window.location.hash;
-
+  if(window.location.hash) {
+    fetchGuidelineTmp(hospitalName);
   }
 
     $(window).on('hashchange', function() {
@@ -50,9 +49,17 @@ $(function() {
     if(path_str) {
       path_str = path_str.substring(1);
       path_arr = path_str.split('/');
-      path_arr.shift();
+      hospital = path_arr.shift();
+      if(hospitalName == '') {
+        hospitalName = hospital;
+        fetchGuidelineTmp(hospitalName);
+        return;
+      }
+
+      path_so_far = '#' + encodeURI(hospitalName);
       for(x = 0; x < path_arr.length; x++) {
-        breadcrumb.push('<li><a href="#">' + current.title + '</a><span class = "divider">/</span></li>');
+        breadcrumb.push('<li><a href="' + path_so_far + '">' + current.title + '</a><span class = "divider">/</span></li>');
+        path_so_far += '/' + path_arr[x];
         current = current.children[parseInt(path_arr[x])];
       }
       $("#breadcrumb").html(breadcrumb.join(""));

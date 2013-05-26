@@ -63,8 +63,25 @@ $(function() {
     if(current.type == 'category') {
       cat = []
       // we're in a category view
+
+
+        path_str = window.location.hash;
+        path_str = path_str.substring(1);
+        path_arr = path_str.split('/');
+        path_arr.shift();
+
+        var pathIdString = "";
+
+        for(var i = 0; i < path_arr.length; i++){
+            pathIdString += path_arr[i] + "/";
+        }
+
       $.each(current.children, function(k,v) {
-        cat.push('<tr><td><a href="#' + path_str + '/' + k + '">' + v.title + '</a></td><td>Modified two days ago</td></tr>');
+        cat.push('<tr><td><input id="' + pathIdString + v.idTitle
+            + '" onchange="onChangeHandler(event)" value="'
+            + v.title + '"/></td><td><a href="#'
+            + path_str + '/' + k + '">' + ">>>"
+            + '</a></td><td>Modified two days ago</td></tr>');
       });
       $("#catTable table").html(cat.join(''));
       $("#categories").show();

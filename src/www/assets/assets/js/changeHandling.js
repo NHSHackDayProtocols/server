@@ -11,24 +11,17 @@ function onChangeHandler(event){
 
 	node[multiAddress.field] = $(event.target).val();
 }
-//"adults/title"
-function findItem(address, arrayAddress){
-	if(typeof(arrayAddress) == undefined){
-		arrayAddress = [];
-	}
+//"0/0/1/3.title"
+function setItem(arrayAddress, value){
+	var node = jsonDocument;
 
+	for (var i = 0; i < multiAddress.arrayAddress.length; i++) {
+		if(i == arrayAddress.length - 1){
+			var finalAddress = arrayAddress.split(".")
+			node[finalAddress[0]][finalAddress[1]] = value;
+		}
+		node = node.children[arrayAddress[i]];
+	};
 
-	var part = address.shift();
-
-	if(part == "title" || part == "content"){
-		return {'arrayAddress': arrayAddress, 'field': part};
-	}else{
-		for (var i = 0; i < address.length; i++) {
-			if(jsonDocument.idTitle == part){
-				arrayAddress.push(i);
-				return findItem(address, arrayAddress);
-			}
-		};
-	}
-		
+	//node[multiAddress.field] = value;	
 }

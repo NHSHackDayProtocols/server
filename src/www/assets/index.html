@@ -1,8 +1,8 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <title>Bootstrap 101 Template</title>
+    <title>Edit your trust’s guidelines</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <!-- Bootstrap -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
   </head>
@@ -19,95 +19,120 @@
   <div class="container">
     <div class="row-fuid">
       <div class="span12">
-          <h1>Edit your trust's guidelines</h1>
+          <h1>Edit your trust&rsquo;s guidelines</h1>
+          <input autocomplete="off" type="text" id="hospital_select" class="span3" style="margin: 0 auto;">
+          <div id="guideline">
 
 <!-- Resp -->
       <div class="accordion span4" id="accordion2">
-  <div class="accordion-group">
-    <div class="accordion-heading">
-      <div class="row-fluid">
-      <div class="span7">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">Respiratory</a>
-      </div>
-      <div class="span5">
-      <a href="#newRespModal" id="newRespBtn" role="button" class="btn btn-success btn-small" data-toggle="modal">New Condition</a>
-      </div>
-    </div>
-    <div id="collapseOne" class="accordion-body collapse in">
-      <div class="accordion-inner">
-<!-- loop the gens resp conditions -->
-        <div class="row-fluid"
-          <div class="span10"></div>
-          <div class="span2">
-              
-          </div>         
-      </div>
-    </div>
-  </div>
-  
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <div class="row-fluid">
+            <div class="span7">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">Respiratory</a>
+            </div>
+            <div class="span5">
+            <a href="#newRespModal" id="newRespBtn" role="button" class="btn btn-small" data-toggle="modal">New Category</a>
+            <a href="#newRespModal" id="newRespBtn" role="button" class="btn btn-success btn-small" data-toggle="modal">New Condition</a>
+            </div>
+          </div>
+          <div id="collapseOne" class="accordion-body collapse in">
+            <div class="accordion-inner">
+      <!-- loop the gens resp conditions -->
+              <div class="row-fluid"
+                <div class="span10"></div>
+                <div class="span2">
+                    
+                </div>         
+            </div>
+          </div>
+        </div>
+        
 
-  <!-- Urinary -->
-  <div class="accordion-group">
-    <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-        Urinary
-      </a>
-    </div>
-    <div id="collapseTwo" class="accordion-body collapse">
-      <div class="accordion-inner">
-<!-- loop the gens uri conditions -->
-       <div class="row-fluid"
-          <div class="span10"></div>
-          <div class="span2">
-              <a href="#newUriModal" role="button" class="btn btn-success" data-toggle="modal">New Condition</a>
-          </div>  
-      </div>
-    </div>
-  </div>
-  
-  <!-- CNS -->
-  <div class="accordion-group">
-    <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
-        Central Nervous System
-      </a>
-    </div>
-    <div id="collapseThree" class="accordion-body collapse">
-      <div class="accordion-inner">
-<!-- loop the gens cns conditions -->
-      <div class="row-fluid"
-          <div class="span10"></div>
-          <div class="span2">
-              <a href="#newCnsModal" role="button" class="btn btn-success" data-toggle="modal">New Condition</a>
-          </div>         
-      </div>
-    </div>
-  </div>
-  
-  <!-- CV -->
-  <div class="accordion-group">
-    <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
-        Cardiovascular System
-      </a>
-    </div>
-    <div id="collapseFour" class="accordion-body collapse">
-      <div class="accordion-inner">
+        <!-- Urinary -->
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+              Urinary
+            </a>
+          </div>
+          <div id="collapseTwo" class="accordion-body collapse">
+            <div class="accordion-inner">
+      <!-- loop the gens uri conditions -->
+             <div class="row-fluid"
+                <div class="span10"></div>
+                <div class="span2">
+                    <a href="#newUriModal" role="button" class="btn btn-success" data-toggle="modal">New Condition</a>
+                </div>  
+            </div>
+          </div>
+        </div>
+        
+        <!-- CNS -->
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+              Central Nervous System
+            </a>
+          </div>
+          <div id="collapseThree" class="accordion-body collapse">
+            <div class="accordion-inner">
+      <!-- loop the gens cns conditions -->
+            <div class="row-fluid"
+                <div class="span10"></div>
+                <div class="span2">
+                    <a href="#newCnsModal" role="button" class="btn btn-success" data-toggle="modal">New Condition</a>
+                </div>         
+            </div>
+          </div>
+        </div>
+        
+        <!-- CV -->
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
+              Cardiovascular System
+            </a>
+          </div>
+          <div id="collapseFour" class="accordion-body collapse">
+            <div class="accordion-inner">
 
-<!-- loop that gens cvs conditions -->
-         <div class="row-fluid"
-          <div class="span10"></div>
-          <div class="span2">
-              <a href="#newRespModal" role="button" class="btn btn-success" data-toggle="modal">New Condition</a>
-          </div>         
+      <!-- loop that gens cvs conditions -->
+               <div class="row-fluid"
+                <div class="span10"></div>
+                <div class="span2">
+                    <a href="#newRespModal" role="button" class="btn btn-success" data-toggle="modal">New Condition</a>
+                </div>         
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
+<!--       new condition modals -->
+      <!-- New Category Modal -->
+<div id="newCategoryModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="newRespModalLabel">New Category</h3>
+  </div>
+  <div class="modal-body">
+    <div class="row-fluid">
+      <div class="span12">
+        <form id="newCategoryForm">
+            <label>Category name</label>
+            <input type="text" placeholder="Respiratory system" id="categoryName">
+        </form>
+        </div>
       </div>
-      
-      <div class="span8">
-      Edit things
-      </div>
+    </div>
+
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button id="saveCategory" class="btn btn-primary">Save changes</button>
+  </div>
+</div>
       
 <!--       new condition modals -->
       <!-- New Resp Modal -->
@@ -186,7 +211,6 @@
         </form>
         </div>
       </div>
-    </div>
 
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
@@ -196,6 +220,7 @@
   
       
     <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="assets/js/global.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script>
       

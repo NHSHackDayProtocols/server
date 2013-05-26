@@ -16,10 +16,23 @@
       </ul>
       </div>
     </div>
+    <div id="titleBlock">
+      <div class="container">
+        <div class="row-fluid">
+          <div class="span4">
+            <h1>GuideLiner</h1>
+            <p>Edit your trust&rsquo;s guidelines</p>
+          </div>
+          <div class="span8">
+          TESTTEST
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
     <div class="container">
       <div class="row-fuid">
         <div class="span12">
-          <h1>Edit your trust&rsquo;s guidelines</h1>
           
           Input your hospital <input autocomplete="off" type="text" id="hospital_select" class="span3" style="margin: 0 auto;">
           <br>
@@ -51,7 +64,7 @@
         </table>
       </div>
       <h3>Title</h3>
-      <body>Some content</body>
+      Some content
       <br>
     </div>
     <div>
@@ -78,7 +91,6 @@
         </div>
       </div>
     </div>
-
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
     <button id="saveCategory" class="btn btn-primary">Save changes</button>
@@ -113,71 +125,14 @@
     <button class="btn btn-primary">Save changes</button>
   </div>
 </div>
-
-      <!-- New uri Modal -->
-<div id="newUriModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="newUriModalLabel">New Urinary Condition</h3>
-  </div>
-  <div class="modal-body">
-    <div class="row-fluid">
-      <div class="span12">
-        <form id="newRespCond">
-          <fieldset>
-            <legend>Define a new guideline</legend>
-            <label>Condition name</label>
-            <input type="text" placeholder="Bronchitis" id="condName">
-            <label>Treatment</label>
-            <input type="text" placeholder="Rest" id="condtreatment">
-          </fieldset>
-        </form>
-        </div>
-      </div>
-    </div>
-
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-    <button class="btn btn-primary">Save changes</button>
-  </div>
 </div>
-
-      <!-- New treatment Modal -->
-<div id="newTreatModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="newTreatModalLabel">Add a new treatment</h3>
-  </div>
-  <div class="modal-body">
-    <div class="row-fluid">
-      <div class="span12">
-<!--       JS to infer tree from form ID -->
-        <form id="newTreat">
-          <fieldset>
-            <legend>Define a new treatment guideline</legend>
-            <label>Treatment</label>
-            <input type="text"  id="title">
-            <label>Content</label>
-            <textarea type="text" placeholder="Teicoranin 600mg BD for 5 days" id="content">
-          </fieldset>
-        </form>
-        </div>
-      </div>
-
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-    <button class="btn btn-primary">Save changes</button>
-  </div>
 </div>
-  
-      
+</div>
+</div>     
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/global.js"></script>
-    <script>
-      
-    </script>
+    <script src="assets/js/changeHandling.js"></script>
     
-  </div>
   </body>
 </html>

@@ -8,12 +8,8 @@
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
 
-.newRespBtn {
-    padding-top:inherit 100px;
-}
-
-#loginbox {
-    position: 20%;
+#titleBlock {
+  background: #f4ff24;
 }
 
 .clearfix {

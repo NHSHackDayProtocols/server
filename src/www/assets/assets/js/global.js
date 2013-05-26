@@ -1,17 +1,23 @@
+var jsonDocument = {};
 $(function() {
+  function fetchGuidelineTmp(hospitalName) {
+      guidelineJson = [{"children":[{"children":[{"content":"Do this and that","idTitle":"adults-default","title":"adults generic","type":"information"}],"idTitle":"adults","title":"adults","type":"category"},{"children":[{"content":"<html>...","idTitle":"line-1","title":"1st line","type":"information"},{"content":"<html>...","idTitle":"line-2","title":"2st line","type":"information"}],"idTitle":"penicilin-alergy","title":"penicilin allergy","type":"category"}],"idTitle":"u-infection","title":"U Infection","type":"category"}];
+      jsonDocument = guidelineJson;
+      var guidelineHtml = jsonToDom();
+  }
   /**
    * fetch the guidelines for a particular hospital
    */
   function fetchGuideline(hospitalName) {
     var url = '/services/getHospitalProtocols/' + encodeURI(hospitalName);
     $.getJSON(url, function(guidelineJson) {
-      console.log(guidelineJson);
+      jsonDocument = guidelineJson;
       // TODO:
       // var guidelineHtml = jsonToDom(guidelineJson);
       // $("#guideline").html(guidelineHtml);
     }).fail(function() {
       console.log("No data");
-      $("#guideline").html('<p>No guideline data</p><div class="span5"><a href="#newCategoryModal" id="newCategoryBtn" role="button" class="btn btn-success btn-small" data-hierarchy="/" data-toggle="modal">New Category</a></div>');
+      $("#guideline").html('<p>No guideline data</p><div class="span5"><a href="#newCategoryModal" id="newCategoryBtn" role="button" class="btn btn-small" data-hierarchy="/" data-toggle="modal">New Category</a><a href="#newTreatModal" id="newTreatBtn" role="button" class="btn btn-success btn-small" data-hierarchy="/" data-toggle="modal">New Treatment</a></div>');
     });
   }
 
@@ -27,8 +33,13 @@ $(function() {
    * TODO
    * parse json, and return some HTML
    */
-  function jsonToDom(guidelineJson) {
-    // TODO
+  function jsonToDom() {
+    var path = window.location.hash.substring(1).split('/');
+    var current = guidelineJson[0];
+    for(x = 0; x < path.length; x++) {
+      current = current.children[parseInt(path[x])];
+    }
+    console.log(current);
   }
 
   /**
@@ -54,7 +65,7 @@ $(function() {
       source: hospitalNames,
       items: 4,
       updater: function(hospitalName) {
-        fetchGuideline(hospitalName);
+        fetchGuidelineTmp(hospitalName);
       }
     });
   });
@@ -67,4 +78,6 @@ $(function() {
     // saveGuideline();
     $("#newCategoryModal").modal('hide');
   });
+    console.log('wtf');
+
 });

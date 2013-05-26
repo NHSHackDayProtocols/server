@@ -77,7 +77,7 @@ $(function() {
         }
 
       $.each(current.children, function(k,v) {
-        cat.push('<tr><td><input id="' + pathIdString + "/" + v.idTitle
+        cat.push('<tr><td><input id="' + pathIdString + v.idTitle
             + '" onchange="onChangeHandler(event)" value="'
             + v.title + '"/></td><td><a href="#'
             + path_str + '/' + k + '">' + ">>>"

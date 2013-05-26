@@ -1,5 +1,5 @@
 function onChangeHandler(event){
-	var address = event.id.split("/");
+	var address = event.target.id.split("/");
 
 	var multiAddress = findItem(address);
 

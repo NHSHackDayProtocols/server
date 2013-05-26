@@ -8,11 +8,13 @@ function setItem(arrayAddress, value){
 	var node = jsonDocument;
 
 	for (var i = 0; i < arrayAddress.length; i++) {
+
 		if(i == arrayAddress.length - 1){
 			var finalAddress = arrayAddress[i].split(".")
 			node.children[finalAddress[0]][finalAddress[1]] = value;
+		}else{
+			node = node.children[arrayAddress[i]];
 		}
-		node = node.children[arrayAddress[i]];
 	};
 
 	//node[multiAddress.field] = value;	

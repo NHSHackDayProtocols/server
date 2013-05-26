@@ -45,27 +45,29 @@ $(function() {
   function jsonToDom() {
     var current = jsonDocument;
     var breadcrumb = [];
+    path_arr = [];
     path_str = window.location.hash;
     if(path_str) {
       path_str = path_str.substring(1);
       path_arr = path_str.split('/');
       hospital = path_arr.shift();
       if(hospitalName == '') {
-        hospitalName = hospital;
+        hospitalName = hospital.replace('%20', ' ');
         fetchGuidelineTmp(hospitalName);
         return;
       }
-
-      path_so_far = '#' + encodeURI(hospitalName);
-      for(x = 0; x < path_arr.length; x++) {
-        breadcrumb.push('<li><a href="' + path_so_far + '">' + current.title + '</a><span class = "divider">/</span></li>');
-        path_so_far += '/' + path_arr[x];
-        current = current.children[parseInt(path_arr[x])];
-      }
-      $("#breadcrumb").html(breadcrumb.join(""));
     } else {
       path_str = encodeURI(hospitalName);
     }
+
+    path_so_far = '#' + encodeURI(hospitalName);
+    breadcrumb.push('<li><a href="' + path_so_far + '">' + hospitalName + '</a><span class = "divider">/</span></li>');
+    for(x = 0; x < path_arr.length; x++) {
+      path_so_far += '/' + path_arr[x];
+      breadcrumb.push('<li><a href="' + path_so_far + '">' + current.title + '</a><span class = "divider">/</span></li>');
+      current = current.children[parseInt(path_arr[x])];
+    }
+    $("#breadcrumb").html(breadcrumb.join(""));
 
     if(current.type == 'category') {
       cat = []

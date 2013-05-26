@@ -1,8 +1,14 @@
 var jsonDocument = {};
+var hospitalName = '';
 $(function() {
+  function render() {
+    path_str = window.location.hash;
+    
+  }
+
   function fetchGuidelineTmp(hospitalName) {
-      guidelineJson = [{"children":[{"children":[{"content":"Do this and that","idTitle":"adults-default","title":"adults generic","type":"information"}],"idTitle":"adults","title":"adults","type":"category"},{"children":[{"content":"<html>...","idTitle":"line-1","title":"1st line","type":"information"},{"content":"<html>...","idTitle":"line-2","title":"2st line","type":"information"}],"idTitle":"penicilin-alergy","title":"penicilin allergy","type":"category"}],"idTitle":"u-infection","title":"U Infection","type":"category"}];
-      jsonDocument = guidelineJson;
+      guidelineJson = [{"children":[{"children":[{"content":"Do this and that","idTitle":"adults-default","title":"adults generic","type":"information"}],"idTitle":"adults","title":"adults","type":"category"},{"children":[{"content":"<html>...","idTitle":"line-1","title":"1st line","type":"information"},{"content":"<html>...","idTitle":"line-2","title":"2st line","type":"information"}],"idTitle":"penicilin-alergy","title":"penicilin allergy","type":"category"}],"idTitle":"u-infection","title":"U Infection","type":"category"},{"children":[{"children":[{"content":"Do this and that","idTitle":"adults-default","title":"adults generic","type":"information"}],"idTitle":"adults","title":"adults","type":"category"},{"children":[{"content":"<html>...","idTitle":"line-1","title":"1st line","type":"information"},{"content":"<html>...","idTitle":"line-2","title":"2st line","type":"information"}],"idTitle":"penicilin-alergy","title":"penicilin allergy","type":"category"}],"idTitle":"b-infection","title":"B Infection","type":"category"}];
+      jsonDocument = {'type': 'category', 'title': 'Protocols', 'children': guidelineJson};
       var guidelineHtml = jsonToDom();
   }
   /**
@@ -11,9 +17,9 @@ $(function() {
   function fetchGuideline(hospitalName) {
     var url = '/services/getHospitalProtocols/' + encodeURI(hospitalName);
     $.getJSON(url, function(guidelineJson) {
-      jsonDocument = guidelineJson;
+      jsonDocument = {'title': 'Protocols', 'children': guidelineJson};
       // TODO:
-      // var guidelineHtml = jsonToDom(guidelineJson);
+      // var guidelineHtml = jsonToDom();
       // $("#guideline").html(guidelineHtml);
     }).fail(function() {
       console.log("No data");
@@ -34,12 +40,33 @@ $(function() {
    * parse json, and return some HTML
    */
   function jsonToDom() {
-    var path = window.location.hash.substring(1).split('/');
-    var current = guidelineJson[0];
-    for(x = 0; x < path.length; x++) {
-      current = current.children[parseInt(path[x])];
+    var current = jsonDocument;
+    var breadcrumb = [];
+    path_str = window.location.hash;
+    if(path_str) {
+      path_str = path_str.substring(1);
+      path_arr = path_str.split('/');
+      path_arr.shift();
+      for(x = 0; x < path_arr.length; x++) {
+        breadcrumb.push('<li><a href="#">' + current.title + '</a><span class = "divider">/</span></li>');
+        current = current.children[parseInt(path_arr[x])];
+      }
+      $("#breadcrumb").html(breadcrumb.join(""));
+    } else {
+      path_str = encodeURI(hospitalName);
     }
-    console.log(current);
+
+    if(current.type == 'category') {
+      cat = []
+      // we're in a category view
+      $.each(current.children, function(k,v) {
+        cat.push('<tr><td><a href="#' + path_str + '/' + k + '">' + v.title + '</a></td><td>Modified two days ago</td></tr>');
+      });
+      $("#catTable table").html(cat.join(''));
+      $("#categories").show();
+    } else {
+      // we're in a content view
+    }
   }
 
   /**
@@ -64,7 +91,8 @@ $(function() {
     $('#hospital_select').typeahead({
       source: hospitalNames,
       items: 4,
-      updater: function(hospitalName) {
+      updater: function(hospital) {
+        hospitalName = hospital;
         fetchGuidelineTmp(hospitalName);
       }
     });
@@ -78,6 +106,4 @@ $(function() {
     // saveGuideline();
     $("#newCategoryModal").modal('hide');
   });
-    console.log('wtf');
-
 });

@@ -10,7 +10,8 @@
 @import url(http://fonts.googleapis.com/css?family=Alef:400,700);
 
 #titleBlock {
-  background: #e8e8e8;
+  background-color: #cbf1ff;
+   background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.5) 35px, rgba(255,255,255,.5) 70px);
   width: 100%;
   height: 250px;
   padding: 15px;
@@ -18,12 +19,13 @@
 
 #logoType {
     font-family: 'Alef', sans-serif, bold;
-    padding-top: 20px;
+    padding-top: 60px;
     font-size: 95px;
     color: #fc3c4f;
 }
 #subLogoType {
     margin-top: 20px;
+    margin-left: 110px;
     font-size: 30px;
 }
 

@@ -7,11 +7,26 @@
  *
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
+@import url(http://fonts.googleapis.com/css?family=Alef:400,700);
 
 #titleBlock {
-  background: #f4ff24;
+  background: #e8e8e8;
   width: 100%;
+  height: 250px;
+  padding: 15px;
 }
+
+#logoType {
+    font-family: 'Alef', sans-serif, bold;
+    padding-top: 20px;
+    font-size: 95px;
+    color: #fc3c4f;
+}
+#subLogoType {
+    margin-top: 20px;
+    font-size: 30px;
+}
+
 .clearfix {
   *zoom: 1;
 }

@@ -7,7 +7,7 @@ function setCollections(incomingCollections){
 
 
 function hospitalList(req, res, next){
-	res.writeHead(200);
+	res.writeHead(200, {'content-type': 'application/json'});
 	http.get("http://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&name=uk_nhs_hospitals&query=select%20name%2C%20lat%2C%20lng%20from%20%60swdata%60",
 		function(getres){
 			getres.pipe(res);	

@@ -67,4 +67,6 @@ $(function() {
     // saveGuideline();
     $("#newCategoryModal").modal('hide');
   });
+    console.log('wtf');
+
 });

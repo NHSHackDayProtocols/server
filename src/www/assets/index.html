@@ -36,93 +36,28 @@
 <!-- End breadcrumb nav -->
 
 
-    <div class="well" id="guideline">
-
-<!-- Resp -->
-
-      <div class="accordion span4" id="accordion2">
-        <div class="accordion-group">
-          <div class="accordion-heading">
-            <div class="row-fluid">
-            <div class="span7">
-            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">Respiratory</a>
-            </div>
-            <div class="span5">
-            <a href="#newRespModal" id="newRespBtn" role="button" class="btn btn-small" data-toggle="modal">New Category</a>
-            <a href="#newRespModal" id="newRespBtn" role="button" class="btn btn-success btn-small" data-toggle="modal">New Condition</a>
-            </div>
-          </div>
-          <div id="collapseOne" class="accordion-body collapse in">
-            <div class="accordion-inner">
-      <!-- loop the gens resp conditions -->
-              <div class="row-fluid"
-                <div class="span10"></div>
-                <div class="span2">
-                    
-                </div>         
-            </div>
-          </div>
-        </div>
-        
-
-        <!-- Urinary -->
-        <div class="accordion-group">
-          <div class="accordion-heading">
-            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-              Urinary
-            </a>
-          </div>
-          <div id="collapseTwo" class="accordion-body collapse">
-            <div class="accordion-inner">
-      <!-- loop the gens uri conditions -->
-             <div class="row-fluid"
-                <div class="span10"></div>
-                <div class="span2">
-                    <a href="#newUriModal" role="button" class="btn btn-success" data-toggle="modal">New Condition</a>
-                </div>  
-            </div>
-          </div>
-        </div>
-        
-        <!-- CNS -->
-        <div class="accordion-group">
-          <div class="accordion-heading">
-            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
-              Central Nervous System
-            </a>
-          </div>
-          <div id="collapseThree" class="accordion-body collapse">
-            <div class="accordion-inner">
-      <!-- loop the gens cns conditions -->
-            <div class="row-fluid"
-                <div class="span10"></div>
-                <div class="span2">
-                    <a href="#newCnsModal" role="button" class="btn btn-success" data-toggle="modal">New Condition</a>
-                </div>         
-            </div>
-          </div>
-        </div>
-        
-        <!-- CV -->
-        <div class="accordion-group">
-          <div class="accordion-heading">
-            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
-              Cardiovascular System
-            </a>
-          </div>
-          <div id="collapseFour" class="accordion-body collapse">
-            <div class="accordion-inner">
-
-      <!-- loop that gens cvs conditions -->
-               <div class="row-fluid"
-                <div class="span10"></div>
-                <div class="span2">
-                    <a href="#newRespModal" role="button" class="btn btn-success" data-toggle="modal">New Condition</a>
-                </div>         
-            </div>
-          </div>
-        </div>
+  <div class="well" id="guideline">
+    <div class="row-fluid" id="content">
+      <div id="catTable">
+        <table class="table table-striped">
+          <tr>
+            <td><a href="#">Respiratory System</a></td>
+            <td>Modified two days ago</td>
+          </tr>
+          <tr>
+            <td><a href="#">Urinary System</a></td>
+            <td>Modified two days ago</td>
+          </tr>
+        </table>
       </div>
+      <h3>Title</h3>
+      <body>Some content</body>
+      <br>
+    </div>
+    <div>
+      <a href="#newCatModal" id="newCatBtn" role="button" class="btn btn-info btn-small" data-toggle="modal">New Category</a>
+      <a href="#newRespModal" id="newRespBtn" role="button" class="btn btn-success btn-small" data-toggle="modal">New Condition</a>
+      <a href="#editContent" id="editContBtn" role="button" class="btn btn-warning btn-small" data-toggle="modal">Edit Content</a>
     </div>
   </div>
 
@@ -152,7 +87,7 @@
       
 <!--       new condition modals -->
       <!-- New Resp Modal -->
-<div id="newRespModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="newCatModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h3 id="newRespModalLabel">New Respiratory Condition</h3>
@@ -237,8 +172,8 @@
   
       
     <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="assets/js/global.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/global.js"></script>
     <script>
       
     </script>

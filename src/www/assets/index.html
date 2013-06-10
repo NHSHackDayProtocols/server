@@ -1,32 +1,32 @@
 <html>
-  <head>
-    <title>Edit your trust’s guidelines</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-    <!-- Bootstrap -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" media="screen">
-    <script src="assets/js/modernWeb.min.js"></script>
-  </head>
-  <body>
-    <div class="navbar">
-      <div class="navbar-inner">
+<head>
+  <title>Edit your trust’s guidelines</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <!-- Bootstrap -->
+  <link href="assets/css/bootstrap.css" rel="stylesheet" media="screen">
+  <script src="assets/js/modernWeb.min.js"></script>
+</head>
+<body>
+  <div class="navbar">
+    <div class="navbar-inner">
       <a class="brand" href="#">GuideLiner</a>
       <ul class="nav">
         <li class="active"><a href="/index.html">Home</a></li>
         <li class="pull-right"><a href="/login.html">Login</a></li>
       </ul>
-      </div>
     </div>
-    <div id="titleBlock">
-      <div class="container">
-        <div class="row-fluid">
-          <div class="span4">
-            <img src="assets/img/titleBlock.png" alt="titleBlock" width="250" height="250" class="img-rounded">
-          </div>
-          <div class="span8">
+  </div>
+  <div id="titleBlock">
+    <div class="container">
+      <div class="row-fluid">
+        <div class="span4">
+          <img src="assets/img/titleBlock.png" alt="titleBlock" width="250" height="250" class="img-rounded">
+        </div>
+        <div class="span8">
           <h1 id="logoType">GuideLiner</h1>
-            <h3 id="subLogoType">Edit your trust&rsquo;s guidelines</h3>
-            <a href="https://github.com/organizations/NHSHackDayProtocols" id="gitlink" role="button" class="btn btn-warning pull-right" data-toggle="modal">View on GitHub</a>          </div>
+          <h3 id="subLogoType">Edit your trust&rsquo;s guidelines</h3>
+          <a href="https://github.com/organizations/NHSHackDayProtocols" id="gitlink" role="button" class="btn btn-warning pull-right" data-toggle="modal">View on GitHub</a>          </div>
         </div>
       </div>
     </div>
@@ -34,109 +34,53 @@
     <div class="container">
       <div class="row-fuid">
         <div class="span12">
-          
+
           Input your hospital <input autocomplete="off" type="text" id="hospital_select" class="span3" style="margin: 0 auto;">
           <br>
           <br>
-<!-- New breadcrumb nav -->
-    <ul class="breadcrumb" id="breadcrumb">
-      <li><a href="#">System</a><span class = "divider">/</span></li>
-      <li><a href="#">Condition</a><span class = "divider">/</span></li>
-      <li><a href="#">Condition Subtype</a><span class = "divider">/</span></li>
-      <li class="active">Treatment</li>
-<!--       <li><a href="#">Treatment Special</a><span class = "divider">/</span></li> -->
-    </ul>
+          <!-- New breadcrumb nav -->
+          <ul class="breadcrumb" id="breadcrumb">
+            <li><a href="#">System</a><span class = "divider">/</span></li>
+            <li><a href="#">Condition</a><span class = "divider">/</span></li>
+            <li><a href="#">Condition Subtype</a><span class = "divider">/</span></li>
+            <li class="active">Treatment</li>
+            <!--       <li><a href="#">Treatment Special</a><span class = "divider">/</span></li> -->
+          </ul>
 
-<!-- End breadcrumb nav -->
+          <!-- End breadcrumb nav -->
 
 
-  <div class="well" id="guideline">
-    <div class="row-fluid" id="content">
-      <div id="catTable">
-        <table class="table table-striped">
-          <tr>
-            <td><a href="#">Respiratory System</a></td>
-            <td>Modified two days ago</td>
-          </tr>
-          <tr>
-            <td><a href="#">Urinary System</a></td>
-            <td>Modified two days ago</td>
-          </tr>
-        </table>
-      </div>
-      <div id="glText">
-        <h3>Title</h3>
-        Some content
-      </div>
-      <br>
-    </div>
-    <div>
-      <a href="#newCatModal" id="newCatBtn" role="button" class="btn btn-info btn-small" data-toggle="modal">New Category</a>
-      <a href="#newRespModal" id="newRespBtn" role="button" class="btn btn-success btn-small" data-toggle="modal">New Condition</a>
-      <a href="#editContent" id="editContBtn" role="button" class="btn btn-warning btn-small" data-toggle="modal">Edit Content</a>
-      <a href="#editContent" id="saveContBtn" role="button" class="btn btn-warning btn-small" data-toggle="modal">Save Content</a>
-    </div>
-  </div>
-
-<!--       new condition modals -->
-      <!-- New Category Modal -->
-<div id="newCategoryModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="newRespModalLabel">New Category</h3>
-  </div>
-  <div class="modal-body">
-    <div class="row-fluid">
-      <div class="span12">
-        <form id="newCategoryForm">
-            <label>Category name</label>
-            <input type="text" placeholder="Respiratory system" id="categoryName">
-        </form>
+          <div class="well" id="guideline">
+            <div class="row-fluid" id="content">
+              <div id="catTable">
+                <table class="table table-striped">
+                  <tr>
+                    <td><a href="#">Respiratory System</a></td>
+                    <td>Modified two days ago</td>
+                  </tr>
+                  <tr>
+                    <td><a href="#">Urinary System</a></td>
+                    <td>Modified two days ago</td>
+                  </tr>
+                </table>
+              </div>
+              <br>
+            </div>
+            <div>
+              <a href="#newCatModal" id="newCatBtn" role="button" class="btn btn-info btn-small" data-toggle="modal">New Category</a>
+              <a href="#newRespModal" id="newRespBtn" role="button" class="btn btn-success btn-small" data-toggle="modal">New Condition</a>
+              <a href="#editContent" id="editContBtn" role="button" class="btn btn-warning btn-small" data-toggle="modal">Edit Content</a>
+              <a href="#editContent" id="saveContBtn" role="button" class="btn btn-warning btn-small" data-toggle="modal">Save Content</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-    <button id="saveCategory" class="btn btn-primary">Save changes</button>
-  </div>
-</div>
-      
-<!--       new condition modals -->
-      <!-- New Resp Modal -->
-<div id="newCatModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="newRespModalLabel">New Respiratory Condition</h3>
-  </div>
-  <div class="modal-body">
-    <div class="row-fluid">
-      <div class="span12">
-        <form id="newRespCond">
-          <fieldset>
-            <legend>Define a new guideline</legend>
-            <label>Condition name</label>
-            <input type="text" placeholder="Bronchitis" id="condName">
-            <label>Treatment</label>
-            <input type="text" placeholder="Rest" id="condtreatment">
-          </fieldset>
-        </form>
-        </div>
-      </div>
-    </div>
+  </div>     
+  <script src="http://code.jquery.com/jquery.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/global.js"></script>
+  <script src="assets/js/changeHandling.js"></script>
 
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-    <button class="btn btn-primary">Save changes</button>
-  </div>
-</div>
-</div>
-</div>
-</div>
-</div>     
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/global.js"></script>
-    <script src="assets/js/changeHandling.js"></script>
-    
-  </body>
+</body>
 </html>

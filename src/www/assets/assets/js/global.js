@@ -69,21 +69,24 @@ $(function() {
     }
     $(".breadcrumb").html(breadcrumb.join(""));
 
+
+    var path_str = window.location.hash;
+    path_str = path_str.substring(1);
+    var path_arr = path_str.split('/');
+    path_arr.shift();
+
+    var pathIdString = "";
+
+    
+
+
     if(current.type == 'category') {
+      for(var i = 0; i < path_arr.length; i++){
+        pathIdString += path_arr[i] + "/";
+    }
       cat = []
       // we're in a category view
 
-
-        var path_str = window.location.hash;
-        path_str = path_str.substring(1);
-        var path_arr = path_str.split('/');
-        path_arr.shift();
-
-        var pathIdString = "";
-
-        for(var i = 0; i < path_arr.length; i++){
-            pathIdString += path_arr[i] + "/";
-        }
 
       $.each(current.children, function(k,v) {
         cat.push('<tr><td><input id="' + pathIdString + k + ".title"
@@ -95,8 +98,16 @@ $(function() {
       $("#catTable table").html(cat.join(''));
       $("#categories").show();
     } else {
+      for(var i = 0; i < path_arr.length; i++){
+        pathIdString += path_arr[i] + "/";
+      }
+      pathIdString = pathIdString.slice(0, -1);
       // we're in a content view
-      console.log("content view")
+       $("#catTable table").html('<tr><td>'
+            + current.title + '</td><td><input id="' + pathIdString + ".content"
+            + '" onchange="onChangeHandler(event)" value="'
+            + current.content + '"/></td><td>Modified two days ago</td></tr>');
+       $("#categories").show();
     }
   }
 

@@ -45,8 +45,8 @@ $(function() {
   function jsonToDom() {
     var current = jsonDocument;
     var breadcrumb = [];
-    path_arr = [];
-    path_str = window.location.hash;
+    var path_arr = [];
+    var path_str = window.location.hash;
     if(path_str) {
       path_str = path_str.substring(1);
       path_arr = path_str.split('/');
@@ -74,9 +74,9 @@ $(function() {
       // we're in a category view
 
 
-        path_str = window.location.hash;
+        var path_str = window.location.hash;
         path_str = path_str.substring(1);
-        path_arr = path_str.split('/');
+        var path_arr = path_str.split('/');
         path_arr.shift();
 
         var pathIdString = "";
@@ -86,7 +86,7 @@ $(function() {
         }
 
       $.each(current.children, function(k,v) {
-        cat.push('<tr><td><input id="' + pathIdString.slice(0, -1) + ".title"
+        cat.push('<tr><td><input id="' + pathIdString + k + ".title"
             + '" onchange="onChangeHandler(event)" value="'
             + v.title + '"/></td><td><a href="#'
             + path_str + '/' + k + '">' + ">>>"
@@ -96,34 +96,35 @@ $(function() {
       $("#categories").show();
     } else {
       // we're in a content view
+      console.log("content view")
     }
   }
 
   /**
-   * TODO
+   * 
    * save the full set of guidelines that are currently in the DOM
    */
-  function saveGuideline() {
-     $("#saveContBtn").click(function(event) {
-      event.preventDefault();  
-      $.ajax({
-        'beforeSend': function(xhr) {
-            xhr.setRequestHeader("Authentication", "Basic " + encodeBase64($("input#username").val() + ":" + $("input#password").val())) //May need to use "Authorization" instead
-        },
+   $("#saveContBtn").click(function(event) {
+    event.preventDefault();  
+    $.ajax({
+      'beforeSend': function(xhr) {
+          xhr.setRequestHeader("Authentication", "Basic " + btoa(
+            $("input#username").val() + ":" + $("input#password").val())
+          ) //May need to use "Authorization" instead
+      },
 
-        type: "POST",
-        url: "/services/updateHospitalProtocols",
-        data: {'hospitalName': hospitalName, 'protocols': jsonDocument.Protocols},
-        success: function(){
-          console.log("Updated")
-        },
-        error:function(){
-            console.log("error");
-        },   
-        dataType: 'json'
-      });
+      type: "POST",
+      url: "/services/updateHospitalProtocols",
+      data: JSON.stringify({'hospitalName': hospitalName, 'protocols': jsonDocument}),
+      success: function(){
+        console.log("Updated")
+      },
+      error:function(){
+          console.log("error");
+      },   
+      dataType: 'application/json'
     });
-  }
+  });
 
   /**
    * populate the hospital list.

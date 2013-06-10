@@ -12,6 +12,9 @@ function setItem(arrayAddress, value){
 		if(i == arrayAddress.length - 1){
 			var finalAddress = arrayAddress[i].split(".")
 			node.children[finalAddress[0]][finalAddress[1]] = value;
+			if(finalAddress[1] == "title"){
+				node.children[finalAddress[0]]['idTitle'] = value.toLowerCase().replace(/ /g, "-");
+			}
 		}else{
 			node = node.children[arrayAddress[i]];
 		}

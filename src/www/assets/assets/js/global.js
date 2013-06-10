@@ -1,5 +1,6 @@
 var jsonDocument = {};
 var hospitalName = '';
+var current;
 $(function() {
   if(window.location.hash) {
     fetchGuideline(hospitalName);
@@ -35,7 +36,7 @@ $(function() {
    * parse json, and return some HTML
    */
   function jsonToDom() {
-    var current = jsonDocument;
+    current = jsonDocument;
     var breadcrumb = [];
     var path_arr = [];
     var path_str = window.location.hash;
@@ -62,9 +63,9 @@ $(function() {
     $(".breadcrumb").html(breadcrumb.join(""));
 
 
-    var path_str = window.location.hash;
+    path_str = window.location.hash;
     path_str = path_str.substring(1);
-    var path_arr = path_str.split('/');
+    path_arr = path_str.split('/');
     path_arr.shift();
 
     var pathIdString = "";
@@ -102,6 +103,21 @@ $(function() {
        $("#categories").show();
     }
   }
+
+  /**
+   * 
+   * add a new category to the current list
+   */
+   $("#newCatBtn").click(function(event) {
+    event.preventDefault();  
+    current.children.push({
+               "children":[],
+               "idTitle":"default",
+               "title":"default",
+               "type":"category"
+            })
+    jsonToDom();
+  });
 
   /**
    * 

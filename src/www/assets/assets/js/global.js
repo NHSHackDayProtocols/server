@@ -90,6 +90,18 @@ $(function() {
       });
       $("#catTable table").html(cat.join(''));
       $("#categories").show();
+      $("#newCatBtn").removeAttr("disabled");
+      $("#newRespBtn").removeAttr("disabled");
+      try{
+        if(current.children[0].type == "category"){
+          $("#newRespBtn").attr("disabled","disabled"); 
+        }else{
+          $("#newCatBtn").attr("disabled","disabled"); 
+        }
+      }catch (e){
+        console.log(e);  
+      }
+      
     } else {
       for(var i = 0; i < path_arr.length; i++){
         pathIdString += path_arr[i] + "/";
@@ -101,23 +113,42 @@ $(function() {
             + '" onchange="onChangeHandler(event)" value="'
             + current.content + '"/></td><td>Modified two days ago</td></tr>');
        $("#categories").show();
+       $("#newRespBtn").attr("disabled","disabled");
+        $("#newCatBtn").attr("disabled","disabled");  
     }
+
   }
 
   /**
    * 
    * add a new category to the current list
    */
-   $("#newCatBtn").click(function(event) {
-    event.preventDefault();  
-    current.children.push({
-               "children":[],
-               "idTitle":"default",
-               "title":"default",
-               "type":"category"
-            })
-    jsonToDom();
+  $("#newCatBtn").click(function(event) {
+    if(typeof($(event.target).attr("disabled")) == "undefined"){
+      event.preventDefault();  
+      current.children.push({
+                 "children":[],
+                 "idTitle":"default-category",
+                 "title":"default category",
+                 "type":"category"
+              })
+      jsonToDom();      
+    }
   });
+
+  $("#newRespBtn").click(function(event) {
+    if(typeof($(event.target).attr("disabled")) == "undefined"){
+      event.preventDefault();  
+      current.children.push({
+                 "idTitle":"default-information",
+                 "title":"default information",
+                 "value":"content goes here (html supported)"
+                 "type":"information"
+              })
+      jsonToDom();
+    }
+  });
+
 
   /**
    * 

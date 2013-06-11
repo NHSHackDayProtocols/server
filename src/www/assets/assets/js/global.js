@@ -46,7 +46,7 @@ $(function() {
       hospital = path_arr.shift();
       if(hospitalName == '') {
         hospitalName = hospital.replace('%20', ' ');
-        fetchGuidelineTmp(hospitalName);
+        fetchGuideline(hospitalName);
         return;
       }
     } else {

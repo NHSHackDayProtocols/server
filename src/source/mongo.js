@@ -10,7 +10,10 @@ function start(callback){
 	        collections.users = users;
 	        db.createCollection("protocols", function(err, protocols){
 	        	collections.protocols = protocols;
-	        	callback();
+	        	db.createCollection("hospitals", function(err, hospitals){
+		        	collections.hospitals = hospitals;
+		        	callback();
+		    	}); 
 	    	}); 
 		}); 
 	});	

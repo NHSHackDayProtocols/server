@@ -142,7 +142,7 @@ $(function() {
       current.children.push({
                  "idTitle":"default-information",
                  "title":"default information",
-                 "value":"content goes here (html supported)"
+                 "value":"content goes here (html supported)",
                  "type":"information"
               })
       jsonToDom();

@@ -1,7 +1,8 @@
 import urllib
 import urllib2
 import StringIO
-import json
+import requests
+
 def decodeAddressToCoordinates( address ):
         urlParams = {
                 'address': address,
@@ -12,11 +13,7 @@ def decodeAddressToCoordinates( address ):
         result = {'status': 'blak'}
 
         while result['status'] != 'OK': 
-            response = urllib2.urlopen( url )
-            responseBody = response.read()
-
-            body = StringIO.StringIO( responseBody )
-            result = json.load( body )
+            result = requests.get(url).json()
 
         if 'status' not in result or result['status'] != 'OK':
                 print result['status'] 
@@ -30,11 +27,10 @@ def decodeAddressToCoordinates( address ):
 # import scraperwiki
 import lxml.html
 import re
-import requests
-
-from pymongo import MongoClient
+from pymongo import MongoClient, GEO2D
 mongoClient = MongoClient()
 db = mongoClient.protocols
+db.hospitals.create_index([("loc", GEO2D)])
 
 from googlemaps import GoogleMaps
 apiKey = "AIzaSyCxrABxXlwovRTpM3_-cT_2EnDGii4u8Ck"
@@ -125,11 +121,20 @@ for tr in root.cssselect(".trust-list li a"):
                 'tel': hosp_tel,
                 'lat': latlng['lat'],
                 'lng': latlng['lng'],
+                'loc': [latlng['lat'], latlng['lng']],
                 'trust_name': trust_name,
                 'trust_url': website,
                 'trust_tel': trust_tel,
                 'trust_postcode': postcode_txt
                 }
             print data
-            db.hospitals.insert(data);
+            db.hospitals.update(
+                {
+                    'name': hosp_name
+                },
+                {
+                    '$set': data
+                },
+                True
+            );
             # scraperwiki.sqlite.save(unique_keys=['name'], data=data)

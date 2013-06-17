@@ -7,28 +7,6 @@ function setCollections(incomingCollections){
 
 
 function hospitalList(req, res, next){
-	// var hospitalList = "";
-
-	// res.writeHead(200, {'content-type': 'application/json'});
-	// http.get("http://api.scraperwiki.com/api/1.0/datastore/sqlite?format=jsondict&name=uk_nhs_hospitals&query=select%20name%2C%20lat%2C%20lng%20from%20%60swdata%60",
-	// 	function(getres){
-	// 		getres.on("data", function(data){
-	// 			hospitalList += data;
-	// 		})
-	// 		getres.on("end", function(){
-	// 			var hospitalListObject = JSON.parse(hospitalList);
-	// 			var dateTimeStamp = new Date().getTime();
-	// 			for (var i = 0; i < 3; i++) {
-	// 				hospitalListObject[i].dateModified = dateTimeStamp;					
-	// 			};
-	// 			for (var i = 3; i < hospitalListObject.length; i++) {
-	// 				hospitalListObject[i].dateModified = 0;					
-	// 			};
-	// 			res.write(JSON.stringify(hospitalListObject));
-	// 			res.end();
-	// 		})
-	// 	});
-
 	collections.hospitals.find().toArray(
 	 function(err, docs){
 	 	if(!err && docs != null){
@@ -38,6 +16,29 @@ function hospitalList(req, res, next){
 	 	}
 	})
 }
+
+function scheduleScraper(){
+	setTimeout(function(){
+		var spawn = require('child_process').spawn,
+	    scraper    = spawn('python', ['./src/services/hospitalScraper.py']);
+
+	    console.log("Starting Scrape");
+
+		scraper.stdout.on('data', function (data) {
+		  // console.log('stdout: ' + data);
+		});
+
+		scraper.stderr.on('data', function (data) {
+		  console.log('stderr: ' + data);
+		});
+
+		scraper.on('close', function (code) {
+		  console.log('child process exited with code ' + code);
+		});	
+	}, 3000)
+}
+
+scheduleScraper();
 
 
 exports.hospitalList = hospitalList;

@@ -32,10 +32,6 @@ mongoClient = MongoClient()
 db = mongoClient.protocols
 db.hospitals.create_index([("loc", GEO2D)])
 
-from googlemaps import GoogleMaps
-apiKey = "AIzaSyCxrABxXlwovRTpM3_-cT_2EnDGii4u8Ck"
-gmaps = GoogleMaps(apiKey)
-
 html = requests.get("http://www.nhs.uk/ServiceDirectories/Pages/AcuteTrustListing.aspx").text
 root = lxml.html.fromstring(html)
 for tr in root.cssselect(".trust-list li a"):
